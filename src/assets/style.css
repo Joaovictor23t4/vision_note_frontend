@@ -50,7 +50,7 @@ body {
 }
 :root[data-theme="light"] {
     --bg: #FFF;
-    --text: #FFF;
+    --text: #000;
     --second-color-theme: #093FA9; 
     --btn: #000;
     --border: #8b8989;
