@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { Header } from "@/components/index";
+import { Header, Sidebar } from "@/components/index";
 </script>
 
 <template>
     <Header />
+    <Sidebar />
 </template>
 
 <style scoped>

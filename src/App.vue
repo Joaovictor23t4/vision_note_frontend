@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
+import { onMounted } from 'vue';
+import { useAccessibilityStore } from "@/stores/index";
+
+const acessibilityStore = useAccessibilityStore();
+
+onMounted(() => {
+  acessibilityStore.setTheme(acessibilityStore.state.theme);
+  acessibilityStore.setFontSize(acessibilityStore.state.font_size);
+})
 </script>
 
 <template>
@@ -7,7 +16,4 @@ import { RouterView } from 'vue-router';
 </template>
 
 <style scoped>
-body {
-  background-color: #000;
-}
 </style>
