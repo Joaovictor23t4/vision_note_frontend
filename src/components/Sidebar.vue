@@ -78,14 +78,14 @@ aside {
 
 .home-btn > span {
     font-family: var(--font-principal);
-    font-size: calc(var(--fs-18px) - 2px);
+    font-size: calc(var(--fs) - 2px);
     font-weight: 700;
 }
 
 .h3-pages {
     color: var(--btn);
     font-family: var(--font-principal);
-    font-size: var(--fs-18px);
+    font-size: var(--fs);
 }
 
 .divider-horizontal {
@@ -114,7 +114,7 @@ aside {
     background-color: transparent;
     color: var(--text);
     font-family: var(--font-principal);
-    font-size: var(--fs-18px);
+    font-size: var(--fs);
     cursor: pointer;
     transition: .3s;
 }
@@ -124,7 +124,7 @@ aside {
 .page-select {
     background-color: var(--hover);
     border-left: 4px solid var(--text);
-    border-color: var(--text);
+    border-color: var(--second-color-theme);
     border-radius: calc(.75rem - 2px);
 }
 .page-title {
@@ -166,7 +166,7 @@ aside {
     background-color: var(--second-color-theme);
     color: var(--bg);
     font-family: var(--font-principal);
-    font-size: var(--fs-18px);
+    font-size: var(--fs);
     font-weight: 700;
     transition: .3s;
     cursor: pointer;

@@ -29,4 +29,4 @@ export const useAccessibilityStore = defineStore('accessibility', () => {
         setTheme,
         setFontSize
     }
-})
+});
