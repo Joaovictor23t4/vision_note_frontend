@@ -38,9 +38,10 @@
 
 <style scoped>
 header {
-    height: 6vh;
+    background-color: var(--aside-bg);
+    height: var(--navbar-height);
     position: relative;
-    border-bottom: 1px solid var(--color-high-contrast);
+    border-bottom: 1px solid var(--border);
 }
 
 nav {
@@ -58,12 +59,12 @@ nav {
 }
 
 .container-title > svg {
-    color: var(--color-high-contrast);
+    color: var(--second-color-theme);
 }
 
 .title {
     font-family: var(--font-principal);
-    color: var(--color-high-contrast);
+    color: var(--second-color-theme);
     font-size: var(--fs-18px);
     font-weight: 700;
 }
@@ -71,7 +72,7 @@ nav {
 .divider {
     width: 1px;
     height: 1.5rem;
-    background-color: var(--color-high-contrast);
+    background-color: var(--text);
     margin-top: 2px;
 }
 
@@ -88,10 +89,10 @@ nav {
     justify-content: center;
     align-items: center;
     padding: .5rem;
-    background-color: #2b2a2a;
+    background-color: var(--second-bg);
     border: none;
     border-radius: calc(.75rem - 2px);
-    color: var(--color-high-contrast);
+    color: var(--btn);
     cursor: pointer;
     transition: .3s;
 }
@@ -107,7 +108,7 @@ nav {
 }
 
 .change-font:hover {
-    background-color: #141414;
+    background-color: var(--hover);
 }
 
 .change-font > span {
@@ -116,13 +117,13 @@ nav {
 }
 
 .change-w-font {
-    color: var(--color-high-contrast);
+    color: var(--btn);
 }
 
 .current-w-font {
-    color: var(--color-high-contrast);
+    color: var(--btn);
     font-family: var(--font-principal);
-    font-size: var(--fs-18px);
+    font-size: var(--fs);
 }
 
 #second-divider {
@@ -140,25 +141,25 @@ nav {
     align-items: center;
     margin-top: 2px;
     padding: .6rem;
-    background-color: #2b2a2a;
+    background-color: var(--second-bg);
     border: none;
     border-radius: calc(.75rem - 2px);
-    color: var(--color-high-contrast);
+    color: var(--btn);
     cursor: pointer;
     transition: .3s;
 }
 
 .change-theme:hover {
-    background-color: #141414;
+    background-color: var(--hover);
 }
 
 .select-theme {
-    background-color: #FFCC00;
-    color: #000;
+    background-color: var(--second-color-theme);
+    color: var(--select-color-btn);
 }
 
 .select-theme:hover {
-    background-color: #FFCC00;
-    color: #000;
+    background-color: var(--second-color-theme);
+    color: var(--select-color-btn);
 }
 </style>
