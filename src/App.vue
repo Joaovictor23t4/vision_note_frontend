@@ -3,9 +3,11 @@ import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <main>
     <RouterView />
-  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+body {
+  background-color: #000;
+}
+</style>
