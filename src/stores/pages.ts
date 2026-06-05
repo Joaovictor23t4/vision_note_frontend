@@ -1,23 +1,11 @@
 import { defineStore } from "pinia";
 import { ref, reactive } from "vue";
+import type { PagesState, PagesList } from "@/interfaces/pages";
 
-export const useAsideStore = defineStore('aside', () => {
-    interface StateInterface {
-        page_selected: string | null
-    }
+export const usePagesStore = defineStore('aside', () => {
 
-    interface Page {
-        id: string,
-        name: string,
-        emoji?: string
-    }
-
-    interface PagesList {
-        pages: Page[]
-    }
-
-    const state = reactive<StateInterface>({
-        page_selected: "abcd"
+    const state = reactive<PagesState>({
+        page_selected: "home"
     });
 
     const pages = ref<PagesList>({ pages: [] })

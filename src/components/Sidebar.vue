@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { ref, Transition, onMounted } from 'vue';
-import { useAsideStore } from '@/stores';
+import { usePagesStore } from '@/stores';
 
-const asideStore = useAsideStore();
+const pagesStore = usePagesStore();
 const hoverPage = ref<string>("");
 
 onMounted(() => {
-    asideStore.populatePages();
+    pagesStore.populatePages();
 })
 </script>
 
 <template>
   <aside>
     <div class="container-home-area">
-        <button class="home-btn">
+        <button :class="['home-btn', {'page-select': pagesStore.state.page_selected == 'home'}]" @click="pagesStore.selectPage('home')">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house w-4 h-4 shrink-0" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
             <span>Inicio</span>
         </button>
@@ -21,11 +21,11 @@ onMounted(() => {
     </div>
     <div class="divider-horizontal"></div>
     <div class="container-pages">
-        <button v-for="page in asideStore.pages.pages" :key="page.id" :class="['page', {'page-select': page.id == asideStore.state.page_selected}]" @mouseenter="hoverPage = page.id" @mouseleave="hoverPage = ''" @click="asideStore.state.page_selected = page.id">
+        <button v-for="page in pagesStore.pages.pages" :key="page.id" :class="['page', {'page-select': page.id == pagesStore.state.page_selected}]" @mouseenter="hoverPage = page.id" @mouseleave="hoverPage = ''" @click="pagesStore.selectPage(page.id)">
             <span class="emoji-span">{{ page.emoji }}</span>
             <span class="page-title">{{ page.name }}</span>
             <Transition name="fade">
-                <svg v-if="hoverPage == page.id" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 trash-icon" viewBox="0 0 16 16" @click="asideStore.removePage(page.id)">
+                <svg v-if="hoverPage == page.id" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 trash-icon" viewBox="0 0 16 16" @click="pagesStore.removePage(page.id)">
                 <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
                 </svg>
             </Transition>

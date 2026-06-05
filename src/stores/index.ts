@@ -1,7 +1,7 @@
 import { useAccessibilityStore } from "./accessibility";
-import { useAsideStore } from "./aside";
+import { usePagesStore } from "./pages";
 
 export {
     useAccessibilityStore,
-    useAsideStore
+    usePagesStore
 }
