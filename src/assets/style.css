@@ -37,7 +37,7 @@ body {
 }
 
 :root[data-theme="dark"] {
-    --bg: #000;
+    --bg: #0D0D0D;
     --text: #F2F2F2;
     --second-text: #aaaaaa;
     --second-color-theme: #FFD633;

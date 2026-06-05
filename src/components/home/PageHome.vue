@@ -1,40 +1,44 @@
 <script setup lang="ts">
-import type { PagePropsHome } from '@/interfaces/props';
+import { CardPage } from '..';
+import { usePagesStore } from '@/stores';
 
-const props = defineProps<PagePropsHome>();
-const emit = defineEmits(['togglePage'])
+const pagesStore = usePagesStore();
+
+function togglePage(idPage: string): void {
+    pagesStore.selectPage(idPage);
+}
 </script>
 
 <template>
-    <button class="btn-page-home" @click="emit('togglePage', page.id)">
-        <span class="emoji-pg-span-home">{{ props.page.emoji }}</span>
-        <span class="name-pg-span-home">{{ props.page.name }}</span>
-    </button>
+    <div class="container-your-pages">
+        <h3 class="ypgs-title">Suas Páginas</h3>
+        <div class="container-flex-pages">
+            <CardPage v-for="page in pagesStore.pages.pages" :key="page.id" :page="page" @toggle-page="togglePage" />
+        </div>
+    </div>
 </template>
 
 <style scoped>
-.btn-page-home {
+.container-your-pages {
     display: flex;
-    column-gap: .8rem;
-    background-color: var(--aside-bg);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    cursor: pointer;
-    transition: .2s;
-    color: var(--text);
-    padding: 1rem;
-    width: 30%;
-    min-width: 300px;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap: .5rem;
 }
-.btn-page-home:hover {
-    background-color: var(--second-bg);
-    border: 1px solid var(--second-color-theme);
-}
-.emoji-pg-span-home {
-    font-size: calc(var(--fs) + .2rem);
-}
-.name-pg-span-home {
+
+.ypgs-title {
+    text-align: center;
     font-family: var(--font-principal);
-    font-size: calc(var(--fs) + .2rem);
+    font-size: calc(var(--fs) + .5rem);
+}
+
+.container-flex-pages {
+    display: flex;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 </style>
