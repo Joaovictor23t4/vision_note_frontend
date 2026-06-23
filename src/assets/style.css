@@ -80,3 +80,52 @@ body {
     --aside-bg: #000;
     --pastel-bg: #211800;
 }
+
+.tiptap {
+  font-family: var(--font-principal);
+  color: var(--text);
+  outline: none;
+}
+
+.tiptap s {
+  text-decoration: line-through;
+}
+
+ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+
+ul[data-type="taskList"] li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+ul[data-type="taskList"] li input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.bubble-menu {
+    display: flex;
+    /* column-gap: .5rem; */
+    padding: .2rem;
+    border-radius: 14px;
+    background-color: #FFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bubble-menu button {
+    border: none;
+    padding: .375rem .625rem;;
+    border-radius: .7rem;
+    font-family: var(--font-principal);
+    font-weight: 400;
+    background-color: transparent;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.bubble-menu button:hover {
+    background-color: rgb(208, 206, 206);
+}

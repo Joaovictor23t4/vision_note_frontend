@@ -7,6 +7,7 @@ import WantHome from "./home/WantHome.vue"
 import PageHome from "./home/PageHome.vue"
 import CardPage from "./home/CardPage.vue"
 import AccessibilityResources from "./home/AccessibilityResources.vue"
+import EditorMd from "./editorMd/EditorMd.vue"
 
 export {
     Header,
@@ -18,4 +19,5 @@ export {
     PageHome,
     CardPage,
     AccessibilityResources,
+    EditorMd
 }
