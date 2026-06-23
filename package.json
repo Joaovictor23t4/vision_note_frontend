@@ -12,6 +12,14 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "@tiptap/extension-bubble-menu": "^3.26.0",
+    "@tiptap/extension-strike": "^3.26.0",
+    "@tiptap/extension-task-item": "^3.26.0",
+    "@tiptap/extension-task-list": "^3.26.0",
+    "@tiptap/markdown": "^3.26.0",
+    "@tiptap/pm": "^3.26.0",
+    "@tiptap/starter-kit": "^3.26.0",
+    "@tiptap/vue-3": "^3.26.0",
     "bootstrap-icons": "^1.13.1",
     "pinia": "^3.0.4",
     "vue": "^3.5.32",
