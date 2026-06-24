@@ -2,6 +2,7 @@
 import { ref, Transition, onMounted } from 'vue';
 import { useNotesStore } from '@/stores';
 import { useRouter } from 'vue-router';
+import type { NoteCreateDTO } from '@/types/notes';
 
 const notesStore = useNotesStore();
 const hoverNote = ref<string>("");
@@ -10,6 +11,14 @@ const router = useRouter();
 onMounted(() => {
     notesStore.findAllNotes();
 })
+
+async function newNote() {
+    const note: NoteCreateDTO = {
+        title: "",
+        content: ""
+    }
+    await notesStore.createNote(note);
+}
 </script>
 
 <template>
@@ -36,7 +45,7 @@ onMounted(() => {
     <div class="container-new-note">
         <button class="new-note-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-4 h-4 plus svg"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
-            <span class="new-note-text">Nova Página</span>
+            <span class="new-note-text" @click="newNote">Nova Página</span>
         </button>
     </div>
   </aside>
