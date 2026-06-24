@@ -5,13 +5,16 @@ import StarterKit from '@tiptap/starter-kit';
 import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
 import { Markdown } from '@tiptap/markdown';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import type { NoteProps } from '@/interfaces/props';
 
-const content = ref<string>("");
+const props = defineProps<NoteProps>();
+const emit = defineEmits(['update-content']);
+
+const content = ref<string>(props.note?.content ? ("<h1>" + props.note.title + "</h1>") + props.note.content : "");
 
 const editor = useEditor({
-    content: "## Título\n\nOlá **mundo**!",
-    contentType: 'markdown',
+    content: content.value,
     extensions: [
       StarterKit.configure({
         paragraph: {
@@ -28,17 +31,20 @@ const editor = useEditor({
       Markdown
     ],
     onUpdate({ editor }) {
-      content.value = editor.getMarkdown();
+      content.value = editor.getHTML();
     },
     onBlur({ editor }) {
-      console.log("blur");
-      console.log(content.value);
+      emit('update-content', content.value);
     },
     onCreate({ editor }) {
-      content.value = editor.getMarkdown();
+      content.value = editor.getHTML();
     },
     editable: true,
 });
+
+watch(() => props.note?.id, () => {
+  editor.value?.commands.setContent(props.note?.content ? ("<h1>" + props.note.title + "</h1>") + props.note.content : "");
+})
 </script>
 
 <template>
