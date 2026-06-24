@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import type { PagePropsHome } from '@/interfaces/props';
+import type { NoteProps } from '@/interfaces/props';
 
-const props = defineProps<PagePropsHome>();
-const emit = defineEmits(['togglePage'])
+const props = defineProps<NoteProps>();
+const emit = defineEmits(['toggleNote']);
 </script>
 
 <template>
-    <button class="btn-page-home" @click="emit('togglePage', page.id)">
-        <span class="emoji-pg-span-home">{{ props.page.emoji }}</span>
-        <span class="name-pg-span-home">{{ props.page.name }}</span>
+    <button class="btn-page-home" @click="emit('toggleNote', props.note)">
+        <span class="name-pg-span-home">{{ props.note?.title }}</span>
     </button>
 </template>
 

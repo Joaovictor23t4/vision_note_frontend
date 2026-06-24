@@ -1,5 +1,5 @@
-import type { Page } from "./pages"
+import type { Note } from "./notes"
 
-export interface PagePropsHome {
-    page: Page
+export interface NoteProps {
+    note: Note | undefined
 }
