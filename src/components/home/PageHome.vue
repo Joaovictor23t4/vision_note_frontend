@@ -1,19 +1,20 @@
 <script setup lang="ts">
+import type { Note } from '@/interfaces/notes';
 import { CardPage } from '..';
-import { usePagesStore } from '@/stores';
+import { useNotesStore } from '@/stores';
 
-const pagesStore = usePagesStore();
+const noteStore = useNotesStore();
 
-function togglePage(idPage: string): void {
-    pagesStore.selectPage(idPage);
+function toggleNote(note: Note): void {
+    noteStore.selectNote(note);
 }
 </script>
 
 <template>
     <div class="container-your-pages">
         <h3 class="ypgs-title">Suas Páginas</h3>
-        <div class="container-flex-pages">
-            <CardPage v-for="page in pagesStore.pages.pages" :key="page.id" :page="page" @toggle-page="togglePage" />
+        <div class="container-flex-pages" v-if="noteStore.notes">
+            <CardPage v-for="note in noteStore.notes ? noteStore.notes : []" :key="note.id" :note="note" @toggle-note="toggleNote" />
         </div>
     </div>
 </template>
