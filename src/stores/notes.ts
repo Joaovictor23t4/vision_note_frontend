@@ -43,9 +43,11 @@ export const useNotesStore = defineStore('notes', () => {
             console.error(`Error in GET note: ${e}`);
         }
     }
-    async function createNote(note: NoteCreateDTO) {
+    async function createNote(newNote: NoteCreateDTO) {
         try {
-            const data = NotesService.create(note);
+            const { data } = await NotesService.create(newNote);
+            notes.value?.push(data);
+            selectNote(data);
         } catch(e) {
             console.error(`Error in POST note: ${e}`);
         }

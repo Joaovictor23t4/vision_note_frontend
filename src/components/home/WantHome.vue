@@ -1,4 +1,16 @@
 <script setup lang="ts">
+import { useNotesStore } from '@/stores';
+import type { NoteCreateDTO } from '@/types/notes';
+
+const notesStore = useNotesStore();
+
+async function newNote() {
+    const note: NoteCreateDTO = {
+        title: "",
+        content: ""
+    }
+    await notesStore.createNote(note);
+}
 </script>
 
 <template>
@@ -8,7 +20,7 @@
             <div class="div-plus-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-4 h-4 plus svg"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
             </div>
-            <div class="container-details-npg">
+            <div class="container-details-npg" @click="newNote">
                 <span class="title-npg">Nova página</span>
                 <span class="description-npg">Começar do zero</span>
             </div>
